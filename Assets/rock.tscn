@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca4srurgf4mjk"]
+
+[ext_resource type="PackedScene" uid="uid://l5fb8um6r875" path="res://models/rock.fbx" id="1_4418v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uxn00"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uxn00"]
+size = Vector3(0.71240234, 0.6723633, 0.7562866)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uxn00"]
+radius = 0.4655321
+
+[node name="Rock" type="RigidBody3D"]
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_uxn00")
+
+[node name="rock" parent="." instance=ExtResource("1_4418v")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.9996449, 0, -0.026648024, 0, 1, 0, 0.026648022, 0, 0.9996449, -0.06552887, 0.099246144, -0.018402245)
+shape = SubResource("BoxShape3D_uxn00")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021746576, -0.08738637)
+shape = SubResource("SphereShape3D_uxn00")

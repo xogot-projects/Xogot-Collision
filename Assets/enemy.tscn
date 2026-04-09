@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfrldkijuxsy3"]
+
+[ext_resource type="PackedScene" uid="uid://dlow1yasx2auf" path="res://models/axolotl.fbx" id="2_b7755"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ui52"]
+radius = 1.2
+height = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dirw5"]
+albedo_color = Color(1, 0.037750244, 0.041519165, 1)
+roughness = 0.46
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7755"]
+transparency = 1
+albedo_color = Color(0.9298248, 0, 0.007003784, 0.8984064)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwuu0"]
+albedo_color = Color(0.4257965, 0, 0.12762451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w431v"]
+albedo_color = Color(0.5439911, 0, 0, 1)
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 0
+wall_min_slide_angle = 0.26209256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1.6292068e-07, -1, 0, 1, -1.6292068e-07, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_3ui52")
+
+[node name="axolotl" parent="." instance=ExtResource("2_b7755")]
+
+[node name="Axolotl Body" parent="axolotl" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dirw5")
+surface_material_override/1 = SubResource("StandardMaterial3D_b7755")
+surface_material_override/2 = SubResource("StandardMaterial3D_dwuu0")
+surface_material_override/3 = SubResource("StandardMaterial3D_w431v")
+
+[editable path="axolotl"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvkn5ajqubavh"]
+
+[ext_resource type="PackedScene" uid="uid://b3vos1pn7u6a7" path="res://models/track.fbx" id="1_f36kf"]
+[ext_resource type="PackedScene" uid="uid://bh7vvkgkw1www" path="res://Assets/car.tscn" id="2_5gtas"]
+
+[node name="Track" type="Node3D"]
+
+[node name="Car" parent="." instance=ExtResource("2_5gtas")]
+transform = Transform3D(0.74337834, 0, -0.6688711, 0, 0.99999994, 0, 0.6688711, 0, 0.7433783, -12.59149, 0.6781051, -42.4511)
+mass = 168.531
+
+[node name="Pivot" type="Marker3D" parent="Car"]
+transform = Transform3D(-0.9991375, 0.03234212, -0.02599962, 0, 0.6265434, 0.7793851, 0.041496936, 0.77871376, -0.62600374, 0.058727264, 14.158563, -3.3741894)
+
+[node name="Camera3D" type="Camera3D" parent="Car/Pivot"]
+transform = Transform3D(1.0000017, -1.1585948e-07, 6.098702e-08, -1.0146753e-07, 1.0000018, -2.3564027e-08, 8.753746e-08, -3.6905575e-08, 1.0000018, 0, 0, 0)
+
+[node name="track 2" parent="." instance=ExtResource("1_f36kf")]

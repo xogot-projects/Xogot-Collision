@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://spd5ynpugua6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kgg1p"]
+top_radius = 0.45
+bottom_radius = 0.45
+height = 0.138
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m0s7"]
+albedo_color = Color(0, 0.00018310547, 0.26387024, 1)
+roughness = 0.89
+
+[node name="VehicleWheel3D" type="VehicleWheel3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.4
+wheel_friction_slip = 1.0
+suspension_travel = 5.0
+suspension_stiffness = 20.0
+damping_compression = 0.88
+
+[node name="CylinderMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_kgg1p")
+surface_material_override/0 = SubResource("StandardMaterial3D_4m0s7")

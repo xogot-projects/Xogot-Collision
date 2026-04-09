@@ -1,0 +1,81 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Collision3"
+run/main_scene="res://Environments/colliding.tscn"
+config/features=PackedStringArray("4.5", "Mobile")
+config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout=""
+
+[display]
+
+window/stretch/scale=0.5
+
+[input]
+
+jump={
+"deadzone": 0.5,
+"events": Array[InputEvent]([Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+])
+}
+accelerate={
+"deadzone": 0.5,
+"events": Array[InputEvent]([Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":-1.0,"script":null)
+])
+}
+reverse={
+"deadzone": 0.5,
+"events": Array[InputEvent]([Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
+])
+}
+turn_left={
+"deadzone": 0.5,
+"events": Array[InputEvent]([Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":-1.0,"script":null)
+])
+}
+turn_right={
+"deadzone": 0.5,
+"events": Array[InputEvent]([Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
+])
+}
+
+[input_devices]
+
+virtual_controller/ios/enable_controller=true
+virtual_controller/ios/enable_button_b=false
+virtual_controller/ios/enable_button_y=false
+
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="enemies"
+3d_physics/layer_3="world"
+3d_physics/layer_4="collectibles"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.626816, 0.961838, 1, 1)
+
+[xogot]
+
+project/editorState=[{
+"column": 0,
+"current": true,
+"line": 0,
+"path": "res://scripts/player.gd",
+"type": "file"
+}]
+project/breakpoints={}

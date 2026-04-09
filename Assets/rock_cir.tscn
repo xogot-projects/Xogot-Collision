@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c843iog6g5s4q"]
+
+[ext_resource type="PackedScene" uid="uid://l5fb8um6r875" path="res://models/rock.fbx" id="1_22lq1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uxn00"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22lq1"]
+height = 1.0068359
+
+[node name="Rock" type="RigidBody3D"]
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_uxn00")
+
+[node name="rock" parent="." instance=ExtResource("1_22lq1")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.6276913, 0.5116804, -0.58667433, 1.833283e-15, 0.7536322, 0.6572963, 0.77846223, -0.41257918, 0.4730484, -0.059683397, 0.023297146, -0.09284168)
+shape = SubResource("CapsuleShape3D_22lq1")
+
+[editable path="rock"]

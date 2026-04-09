@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh7vvkgkw1www"]
+
+[ext_resource type="Script" uid="uid://cn6ywg1p1sck" path="res://scripts/car.gd" id="1_33wvm"]
+[ext_resource type="PackedScene" uid="uid://spd5ynpugua6" path="res://Assets/wheel.tscn" id="1_45sxo"]
+[ext_resource type="PackedScene" uid="uid://gin0hqjdxuee" path="res://models/Car.fbx" id="3_roid3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_33wvm"]
+friction = 0.5
+bounce = 0.26
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_roid3"]
+size = Vector3(1.8, 1.8035854, 3.8999023)
+
+[node name="Car" type="VehicleBody3D"]
+mass = 39.865
+physics_material_override = SubResource("PhysicsMaterial_33wvm")
+script = ExtResource("1_33wvm")
+
+[node name="VehicleWheel3D" parent="." instance=ExtResource("1_45sxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1)
+
+[node name="VehicleWheel3D2" parent="." instance=ExtResource("1_45sxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -1)
+use_as_steering = false
+
+[node name="VehicleWheel3D3" parent="." instance=ExtResource("1_45sxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9393699, 0.5, 1)
+
+[node name="VehicleWheel3D4" parent="." instance=ExtResource("1_45sxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, -1)
+use_as_steering = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4521258, 0.11142087)
+shape = SubResource("BoxShape3D_roid3")
+
+[node name="Car" parent="." instance=ExtResource("3_roid3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13072348, -0.07234132)

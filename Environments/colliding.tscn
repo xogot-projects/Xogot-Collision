@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cij24xlc3mxs4"]
+
+[ext_resource type="PackedScene" uid="uid://cohb8et7ekgcb" path="res://Assets/platform.tscn" id="1_bscj8"]
+[ext_resource type="PackedScene" uid="uid://ca4srurgf4mjk" path="res://Assets/rock.tscn" id="2_anapj"]
+[ext_resource type="PackedScene" uid="uid://c843iog6g5s4q" path="res://Assets/rock_cir.tscn" id="3_e2tpd"]
+[ext_resource type="PackedScene" uid="uid://bol5o3y3dt0cb" path="res://Assets/rock_sq.tscn" id="4_k62dn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e2tpd"]
+sky_top_color = Color(0, 0.835434, 0.843491, 1)
+sky_horizon_color = Color(0.8918074, 1.1145971, 1.2916336, 1)
+ground_bottom_color = Color(0.244186, 0.299911, 1, 1)
+ground_horizon_color = Color(0.8918074, 1.1145971, 1.2916336, 1)
+
+[sub_resource type="Sky" id="Sky_k62dn"]
+sky_material = SubResource("ProceduralSkyMaterial_e2tpd")
+
+[sub_resource type="Environment" id="Environment_d750c"]
+background_mode = 2
+sky = SubResource("Sky_k62dn")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d750c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="Platform" parent="." instance=ExtResource("1_bscj8")]
+
+[node name="Pivot" type="Marker3D" parent="."]
+transform = Transform3D(0.7558768, -0.20663649, 0.62124836, 0, 0.9488865, 0.31561384, -0.65471226, -0.23856543, 0.71724206, 4.7118936, 3.2100725, 5.82449)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1.0000011, -4.657023e-09, -4.6675876e-08, 5.4603637e-09, 1.0000012, 2.094508e-08, 1.862972e-08, 2.8805829e-09, 1.0000012, 0.6713605, 0.85505384, -2.570702)
+
+[node name="Rock-two" parent="." instance=ExtResource("2_anapj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3434646, 2.7150445, 0)
+
+[node name="Rock-capsule" parent="." instance=ExtResource("3_e2tpd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71293855, 2.4819148, 0.78005147)
+
+[node name="Rock-box" parent="." instance=ExtResource("4_k62dn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9315462, 2.2118254, -0.40330088)
